@@ -9,7 +9,9 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest --config=jest.config.json"
+    "test": "jest --config=jest.config.json",
+    "start": "node server/server.js",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -35,11 +37,12 @@
     "webpack-dev-server": "^2.9.7"
   },
   "dependencies": {
+    "express": "^4.16.2",
     "moment": "^2.20.0",
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
     "react-addons-shallow-compare": "^15.6.2",
-    "react-dates": "^16.0.1",
+    "react-dates": "12.3.0",
     "react-dom": "^16.2.0",
     "react-modal": "^3.1.8",
     "react-redux": "^5.0.6",
