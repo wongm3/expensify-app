@@ -3,3 +3,6 @@
 /.idea/
 
 /public/dist/
+
+/.env.test
+/.env.development
