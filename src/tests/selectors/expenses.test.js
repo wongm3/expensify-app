@@ -1,4 +1,4 @@
-import { getVisibleExpenses } from '../../selectors/expenses';
+import { getVisibleExpenses, getExpensesTotal } from '../../selectors/expenses';
 import moment from 'moment';
 import expenses from '../fixtures/expenses';
 
@@ -67,4 +67,16 @@ test('should sort by amount', () => {
     expenses[2],
     expenses[0]
   ])
+});
+
+test('should return 0 if no expenses', () => {
+  expect(getExpensesTotal([])).toBe(0);
+});
+
+test('should correctly add up a single expense', () => {
+  expect(getExpensesTotal([expenses[0]])).toBe(expenses[0].amount);
+});
+
+test('should correctly add up multiple expenses', () => {
+  expect(getExpensesTotal(expenses)).toBe(expenses[0].amount + expenses[1].amount + expenses[2].amount);
 });

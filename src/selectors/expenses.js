@@ -18,3 +18,7 @@ export const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate}
     }
   });
 };
+
+export const getExpensesTotal = (expenses) => {
+  return expenses.reduce((total, expense) => total + expense.amount, 0);
+};
