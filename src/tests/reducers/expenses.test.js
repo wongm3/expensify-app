@@ -65,3 +65,10 @@ test('should not edit an expense if id not found', () => {
     updates
   })).toEqual(expenses);
 });
+
+test('should set expenses', () => {
+  expect(expensesReducer(expenses, {
+    type: 'SET_EXPENSES',
+    expenses: [expenses[1]]
+  })).toEqual([expenses[1]]);
+});
